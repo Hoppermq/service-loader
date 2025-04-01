@@ -34,8 +34,6 @@ type Application struct {
   stop chan os.Signal
 }
 
-type Option func(*Application)
-
 // new create a new service instance
 func New(opts ...Option) *Application {
   app := &Application{
