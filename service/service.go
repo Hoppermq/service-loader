@@ -4,13 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log/slog"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
-
-	"github.com/hoppermq/service-loader/config"
-	"github.com/sagikazarmark/slog-shim"
 )
 
 type Service interface {
@@ -38,7 +36,7 @@ type Application struct {
 
 type Option func(*Application)
 
-// New create a new service instance
+// new create a new service instance
 func New(opts ...Option) *Application {
   app := &Application{
     stop: make(chan os.Signal, 1),
