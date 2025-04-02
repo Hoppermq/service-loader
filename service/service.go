@@ -37,6 +37,7 @@ type Application struct {
 // new create a new service instance
 func New(opts ...Option) *Application {
   app := &Application{
+    conf: Config{},
     stop: make(chan os.Signal, 1),
     running: make(chan bool, 1),
   }
